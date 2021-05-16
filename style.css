@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 /*====================================================================================================*/
+
 /*====================================================================================================*/
 /* Global Variables */
 :root {
@@ -18,8 +19,14 @@
     /* Typography Usage and Heirarchy */
     --font-family-headings: "Poppins", sans-serif;
     --font-family-body: "Open Sans", sans-serif;
+
+    /* Design Specs Breakpoints */
+    --viewport-desktop: 1440;
+    --viewport-mobile: 375;
+    --delta-viewport: calc(var(--viewport-desktop) - var(--viewport-mobile));
 }
 /*====================================================================================================*/
+
 /*====================================================================================================*/
 /* Typography Styles */
 html,
@@ -76,6 +83,7 @@ h2 {
     font-size: clamp(11.13px, calc((11.13 / 375) * 100vw), 12px);
 }
 /*====================================================================================================*/
+
 /*====================================================================================================*/
 /* Button Component Styles */
 .button {
@@ -107,7 +115,9 @@ h2 {
 
     font-size: clamp(10px, calc((10 / 375) * 100vw), 14px);
     line-height: clamp(14px, calc((15 / 375) * 100vw), 19px);
+    box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.0954201);
 }
+
 .button--primary {
     color: white;
     background-color: var(--color-brand-primary);
@@ -115,10 +125,12 @@ h2 {
 .button--primary:hover {
     background-color: hsla(321, 100%, 80%, 1);
     color: white;
+    box-shadow: 2px 3px 6px 1px rgba(255, 82, 193, 0.166185);
 }
 /*====================================================================================================*/
+
 /*====================================================================================================*/
-/* layout Utilities */
+/* Generic container styles */
 .container {
     /* Default container for the body */
     margin: 0 auto;
@@ -141,21 +153,14 @@ h2 {
     width: 92.46666667%;
     max-width: 1280px;
 }
-/*====================================================================================================*/
-/*====================================================================================================*/
-.page-header__nav__logo {
-    width: clamp(104px, calc((104 / 375) * 100vw), 200px);
-    height: clamp(16px, calc((16 / 375) * 100vw), 31px);
-}
-.page-header__nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: clamp(27px, calc((27 / 375) * 100vw), 48px) 0 59px 0;
+
+.show-border--primary {
+    border: 1px dashed var(--color-brand-primary);
 }
 /*====================================================================================================*/
+
 /*====================================================================================================*/
-/* Page Header section
+/* Page Header Section Content Styles
  * The following styles below limits the width and height images and text.
  * In that manner, reading experience will not suffer on larger screens */
 .page-header__main__copy h1 {
@@ -170,47 +175,74 @@ h2 {
     max-width: 1035px;
     max-height: 739px;
 }
+/*====================================================================================================*/
 
-/* Background */
+/*====================================================================================================*/
+/* Page Header section Layout Styles */
 .page-header {
+    /* Styling for the responsive behavior of page header
+     * Header grows from the smallest viewport up-to 1440px wide only
+     * On larger view port, the design looks the same as 1440px viewport width*/
+    width: min(100%, 1440px);
+    min-height: 720px;
+    padding-top: clamp(27px, calc((27 / 375) * 100vw), 68px);
+
     background-color: var(--color-neutral-light);
-    background-image: url("/images/bg-hero-mobile.svg");
-    background-size: contain;
 }
 
-/* Page layout styling. Mostly flexbox manipulation */
-.page-header .container--lg,
-.page-header__main,
-.page-header__main__copy {
+.page-header__nav {
+    height: clamp(24px, calc((24 / 375) * 100vw), 48px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Applying two point form of equation of line. xD 
+     * The code below requires famliliarity with high-school math
+     * typically with Analytic geometry.
+     * x-coordinate: Current device view-port
+     * y-coordinate: Resulting Margin */
+    --delta-margin: calc(71 - 80);
+    --slope: calc(var(--delta-margin) / var(--delta-viewport));
+
+    /* 
+     * The code below applies the two-point form equation of the line.
+     * In the near future, I will implement it via SCSS function for reusablity.
+     */
+    margin-bottom: clamp(71px, calc(var(--slope) * (100vw - 1440px) + 71px), 80px);
+}
+
+.page-header__nav__logo {
+    /* Fluid Logo. Ensures that logo sizing is not lesser nor greater than the design specs*/
+    width: clamp(104px, calc((104 / 375) * 100vw), 200px);
+    height: clamp(16px, calc((16 / 375) * 100vw), 31px);
+}
+
+.page-header__main {
+    min-height: 590px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
 }
-
-.page-header {
-    padding-bottom: clamp(37px, calc((37 / 375) * 100vw), 72px);
+@media screen and (min-width: 1320px){
+    .page-header__main {
+        flex-direction: row;
+    }
+    .page-header__main__copy {
+        text-align: left;
+    }
 }
+
 .page-header__main__copy {
+    width: clamp(280px,calc((280/375)*100vw),536px);
+    min-height: clamp(288px,calc((288/375)*100vw),321px);
     margin-bottom: 56px;
 }
 
-@media screen and (min-width: 768px) {
-    .page-header {
-        background-image: url("/images/bg-hero-desktop.svg");
-    }
-    .page-header__main {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .page-header__main__copy {
-        align-items: flex-start;
-        text-align: left;
-        margin-bottom: unset;
-        flex: 1 0 42.2047244094%; /* Maintains the proportion of sizing between copy and visuals elements */
-    }
-    .page-header__main__visuals {
-        flex: 1 1 53.5433070866%; /* Maintains the proportion of sizing between copy and visuals elements */
-    }
+.page-header__main__visuals {
+    width: clamp(296px,calc((296/375)*100vw),680px);
+    min-height: clamp(209px,calc((209/375)*100vw),482px);
+    display: flex;
+    align-items: center;
 }
 /*====================================================================================================*/
