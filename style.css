@@ -185,7 +185,7 @@ h2 {
      * On larger view port, the design looks the same as 1440px viewport width*/
     width: min(100%, 1440px);
     min-height: 720px;
-    padding-top: clamp(27px, calc((27 / 375) * 100vw), 68px);
+    padding-top: clamp(27px, calc((27 / 375) * 100vw), 48px);
 
     background-color: var(--color-neutral-light);
 }
