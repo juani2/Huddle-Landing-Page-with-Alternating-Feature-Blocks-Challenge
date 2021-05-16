@@ -231,17 +231,22 @@ h2 {
     .page-header__main__copy {
         text-align: left;
     }
+
+    .page-header__main__visuals {
+        align-self: flex-start;
+    }
 }
 
 .page-header__main__copy {
     width: clamp(280px,calc((280/375)*100vw),536px);
-    min-height: clamp(288px,calc((288/375)*100vw),321px);
+    height: clamp(288px,calc((288/375)*100vw),321px);
     margin-bottom: 56px;
+    align-self: center;
 }
 
 .page-header__main__visuals {
     width: clamp(296px,calc((296/375)*100vw),680px);
-    min-height: clamp(209px,calc((209/375)*100vw),482px);
+    height: clamp(209px,calc((209/375)*100vw),482px);
     display: flex;
     align-items: center;
 }
