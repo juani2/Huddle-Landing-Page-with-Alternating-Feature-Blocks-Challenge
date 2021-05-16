@@ -217,7 +217,6 @@ h2 {
 }
 
 .page-header__main {
-    min-height: 590px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -229,6 +228,7 @@ h2 {
         flex-direction: row;
     }
     .page-header__main__copy {
+        align-self: center;
         text-align: left;
     }
 
