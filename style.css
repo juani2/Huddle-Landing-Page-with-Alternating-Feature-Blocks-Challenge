@@ -223,20 +223,6 @@ h2 {
     align-items: center;
     text-align: center;
 }
-@media screen and (min-width: 1320px){
-    .page-header__main {
-        flex-direction: row;
-    }
-    .page-header__main__copy {
-        align-self: center;
-        text-align: left;
-    }
-
-    .page-header__main__visuals {
-        align-self: flex-start;
-    }
-}
-
 .page-header__main__copy {
     width: clamp(280px,calc((280/375)*100vw),536px);
     height: clamp(288px,calc((288/375)*100vw),321px);
@@ -249,5 +235,15 @@ h2 {
     height: clamp(209px,calc((209/375)*100vw),482px);
     display: flex;
     align-items: center;
+}
+
+@media screen and (min-width: 1320px){
+    .page-header__main {
+        flex-direction: row;
+    }
+    .page-header__main__copy {
+        text-align: left;
+        margin-bottom: 0px;
+    }
 }
 /*====================================================================================================*/
