@@ -188,8 +188,8 @@ h2 {
     text-align: center;
 }
 
-.page-header__main {
-    margin-bottom: clamp(37px, calc((37 / 375) * 100vw), 72px);
+.page-header {
+    padding-bottom: clamp(37px, calc((37 / 375) * 100vw), 72px);
 }
 .page-header__main__copy {
     margin-bottom: 56px;
