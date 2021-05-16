@@ -150,6 +150,7 @@ h2 {
 .page-header__nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: clamp(27px, calc((27 / 375) * 100vw), 48px) 0 clamp(71px, calc(80px - ((27 / 375) * 100vw)), 80px) 0;
 }
 /*====================================================================================================*/
