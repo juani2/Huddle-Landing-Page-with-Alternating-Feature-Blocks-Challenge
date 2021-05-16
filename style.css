@@ -41,6 +41,13 @@ body {
     line-height: clamp(21px, calc((21 / 375) * 100vw), 27px);
 }
 
+body {
+    /* Keeps the design at 1440px below, if viewport is much larger, design wont adjust anymore */
+    width: min(100%, 1440px);
+    height: fit-content;
+    margin: 0 auto;
+}
+
 h1,
 h2,
 h3,
@@ -180,14 +187,13 @@ h2 {
 /*====================================================================================================*/
 /* Page Header section Layout Styles */
 .page-header {
-    /* Styling for the responsive behavior of page header
-     * Header grows from the smallest viewport up-to 1440px wide only
-     * On larger view port, the design looks the same as 1440px viewport width*/
-    width: min(100%, 1440px);
     min-height: 720px;
     padding-top: clamp(27px, calc((27 / 375) * 100vw), 48px);
 
     background-color: var(--color-neutral-light);
+    background-image: url("/images/bg-hero-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: contain
 }
 
 .page-header__nav {
@@ -238,6 +244,9 @@ h2 {
 }
 
 @media screen and (min-width: 1320px){
+    .page-header {
+        background-image: url("/images/bg-hero-desktop.svg");
+    }
     .page-header__main {
         flex-direction: row;
     }
