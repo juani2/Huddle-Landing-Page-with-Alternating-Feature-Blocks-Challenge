@@ -1,0 +1,215 @@
+/*====================================================================================================*/
+/* Box Model Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*====================================================================================================*/
+/*====================================================================================================*/
+/* Global Variables */
+:root {
+    /* Colors Usage and Heirarchy */
+    --color-brand-primary: hsl(322, 100%, 66%);
+    --color-neutral-primary: hsl(192, 100%, 9%);
+    --color-neutral-secondary: hsl(208, 11%, 55%);
+    --color-neutral-light: hsl(193, 100%, 96%);
+
+    /* Typography Usage and Heirarchy */
+    --font-family-headings: "Poppins", sans-serif;
+    --font-family-body: "Open Sans", sans-serif;
+}
+/*====================================================================================================*/
+/*====================================================================================================*/
+/* Typography Styles */
+html,
+body {
+    /* By default, typography is always responsive with respect to viewport.
+     * CSS clamp() ensures that the typography settings were responsive without
+     * breaking the design specs 
+     */
+    font-family: var(--font-family-body);
+    font-weight: 400;
+    font-size: clamp(14px, calc((14 / 375) * 100vw), 18px);
+    line-height: clamp(21px, calc((21 / 375) * 100vw), 27px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-headings);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+h1 {
+    font-size: clamp(24px, calc((24 / 375) * 100vw), 40px);
+    line-height: clamp(36px, calc((36 / 375) * 100vw), 60px);
+    margin-bottom: clamp(24px, calc((24 / 375) * 100vw), 32px);
+}
+h2 {
+    font-size: clamp(20px, calc((20 / 375) * 100vw), 28px);
+    line-height: clamp(30px, calc((30 / 375) * 100vw), 42px);
+    margin-bottom: 16px; /* based on design specs, no need to be responsive */
+}
+
+.text-lead {
+    /* Used for lead text typically just after the main heading
+     * This text will appear slightly larger on smaller viewport
+     * but appears similar to body copy on larger viewport
+     */
+    font-size: clamp(16px, calc((16 / 375) * 100vw), 18px);
+    line-height: clamp(24px, calc((24 / 375) * 100vw), 27px);
+}
+
+.text-non-responsive {
+    /* Used for footer links where fluid typography is not specified in the design specs */
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.text-credits {
+    /* Used for credit texts at bottom most of footer */
+    font-size: clamp(11.13px, calc((11.13 / 375) * 100vw), 12px);
+}
+/*====================================================================================================*/
+/*====================================================================================================*/
+/* Button Component Styles */
+.button {
+    display: inline-block;
+    background-color: white;
+    box-shadow: 0px 6px 13px rgba(0, 37, 46, 0.223053);
+    border-radius: 40px;
+
+    padding-top: clamp(10px, calc((10 / 375) * 100vw), 17px);
+    padding-right: clamp(59px, calc((59 / 375) * 100vw), 69px);
+    padding-bottom: clamp(14px, calc((14 / 375) * 100vw), 20px);
+    padding-left: clamp(60px, calc((60 / 375) * 100vw), 70px);
+
+    color: var(--color-neutral-primary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: clamp(12px, calc((10 / 375) * 100vw), 14px);
+    line-height: clamp(16px, calc((15 / 375) * 100vw), 19px);
+}
+.button:hover {
+    color: var(--color-neutral-secondary);
+}
+
+.button--small {
+    padding-top: clamp(4px, calc((4 / 375) * 100vw), 13px);
+    padding-right: clamp(22px, calc((22 / 375) * 100vw), 63px);
+    padding-bottom: clamp(6px, calc((6 / 375) * 100vw), 16px);
+    padding-left: clamp(23px, calc((23 / 375) * 100vw), 65px);
+
+    font-size: clamp(10px, calc((10 / 375) * 100vw), 14px);
+    line-height: clamp(14px, calc((15 / 375) * 100vw), 19px);
+}
+.button--primary {
+    color: white;
+    background-color: var(--color-brand-primary);
+}
+.button--primary:hover {
+    background-color: hsla(321, 100%, 80%, 1);
+    color: white;
+}
+/*====================================================================================================*/
+/*====================================================================================================*/
+/* layout Utilities */
+.container {
+    /* Default container for the body */
+    margin: 0 auto;
+    width: 89.3333333%;
+    max-width: 1232px;
+}
+.container--md {
+    /* Wide container. Good for footer */
+    width: 90.13%;
+    max-width: 1242px;
+}
+.container--lg {
+    /* Wider container. Good for primary heading */
+    margin: 0 auto;
+    width: 81.06666667%;
+    max-width: 1270px;
+}
+.container--xl {
+    /* Widest container. Good for navbar */
+    width: 92.46666667%;
+    max-width: 1280px;
+}
+/*====================================================================================================*/
+/*====================================================================================================*/
+.page-header__nav__logo {
+    width: clamp(104px, calc((104 / 375) * 100vw), 240px);
+    height: clamp(16px, calc((16 / 375) * 100vw), 39px);
+}
+.page-header__nav {
+    display: flex;
+    justify-content: space-between;
+    padding: clamp(27px, calc((27 / 375) * 100vw), 68px) 0 clamp(71px, calc(80px - ((27 / 375) * 100vw)), 80px) 0;
+}
+/*====================================================================================================*/
+/*====================================================================================================*/
+/* Page Header section
+ * The following styles below limits the width and height images and text.
+ * In that manner, reading experience will not suffer on larger screens */
+.page-header__main__copy h1 {
+    max-width: 17ch;
+}
+.page-header__main__copy p {
+    max-width: 50ch;
+    margin-bottom: 32px; /* As per design, margin bottom is not responsive */
+}
+.page-header__main__visuals img {
+    width: 100%;
+    max-width: 1035px;
+    max-height: 739px;
+}
+
+/* Background */
+.page-header {
+    background-color: var(--color-neutral-light);
+    background-image: url("/images/bg-hero-mobile.svg");
+    background-size: contain;
+}
+
+/* Page layout styling. Mostly flexbox manipulation */
+.page-header .container--lg,
+.page-header__main,
+.page-header__main__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.page-header__main {
+    margin-bottom: clamp(37px, calc((37 / 375) * 100vw), 72px);
+}
+.page-header__main__copy {
+    margin-bottom: 56px;
+}
+
+@media screen and (min-width: 768px) {
+    .page-header {
+        background-image: url("/images/bg-hero-desktop.svg");
+    }
+    .page-header__main {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .page-header__main__copy {
+        align-items: flex-start;
+        text-align: left;
+        margin-bottom: unset;
+        flex: 1 0 42.2047244094%; /* Maintains the proportion of sizing between copy and visuals elements */
+    }
+    .page-header__main__visuals {
+        flex: 1 1 53.5433070866%; /* Maintains the proportion of sizing between copy and visuals elements */
+    }
+}
+/*====================================================================================================*/
