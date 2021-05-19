@@ -295,6 +295,10 @@ h2 {
     max-width: 49ch;
 }
 
+.card p {
+    color: var(--color-neutral-secondary);
+}
+
 .card__visual{
     width: min(100%, 440px);
     height: min(100%, 440px);
