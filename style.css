@@ -193,7 +193,7 @@ h2 {
     background-color: var(--color-neutral-light);
     background-image: url("/images/bg-hero-mobile.svg");
     background-repeat: no-repeat;
-    background-size: contain
+    background-size: contain;
 }
 
 .page-header__nav {
@@ -201,6 +201,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     /* Applying two point form of equation of line. xD 
      * The code below requires famliliarity with high-school math
      * typically with Analytic geometry.
@@ -212,6 +213,8 @@ h2 {
     /* 
      * The code below applies the two-point form equation of the line.
      * In the near future, I will implement it via SCSS function for reusablity.
+     * The code below changes the margin-bottom inversely proportional to viewport width
+     * starting at 80px at 375px viewport then going to 71px at 1440px viewport
      */
     margin-bottom: clamp(71px, calc(var(--slope) * (100vw - 1440px) + 71px), 80px);
 }
@@ -230,20 +233,23 @@ h2 {
     text-align: center;
 }
 .page-header__main__copy {
-    width: clamp(280px,calc((280/375)*100vw),536px);
-    height: clamp(288px,calc((288/375)*100vw),321px);
+    width: clamp(280px, calc((280 / 375) * 100vw), 536px);
+    height: clamp(288px, calc((288 / 375) * 100vw), 321px);
     margin-bottom: 56px;
     align-self: center;
 }
 
 .page-header__main__visuals {
-    width: clamp(296px,calc((296/375)*100vw),680px);
-    height: clamp(209px,calc((209/375)*100vw),482px);
+    width: clamp(296px, calc((296 / 375) * 100vw), 680px);
+    height: clamp(209px, calc((209 / 375) * 100vw), 482px);
     display: flex;
     align-items: center;
 }
 
-@media screen and (min-width: 1320px){
+/* This is breakpoint where .page-header__main__copy element 
+ * touches the .page-header__main__visuals element
+ */
+@media screen and (min-width: 1320px) {
     .page-header {
         background-image: url("/images/bg-hero-desktop.svg");
     }
@@ -253,6 +259,78 @@ h2 {
     .page-header__main__copy {
         text-align: left;
         margin-bottom: 0px;
+    }
+}
+/*====================================================================================================*/
+
+/*====================================================================================================*/
+.card {
+    width: clamp(355px, calc((335 / 375) * 100vw), 1232px);
+    min-height: clamp(441px, calc(488px - ((488 / 375) * 100vw)), 488px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.07);
+    border-radius: 16px;
+}
+
+.card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 40px 33px 40px;
+}
+
+.card__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.card__copy {
+    text-align: center;
+    max-width: 49ch;
+}
+
+.card__visual{
+    width: min(100%, 440px);
+    height: min(100%, 440px);
+}
+.card__visual img {
+    width: 100%;
+    height: 100%;
+}
+.card-group {
+    width: clamp(355px, calc((335 / 375) * 100vw), 1232px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: clamp(59px, calc((59 / 375) * 100vw), 160px);
+    margin-bottom: clamp(229px, calc((229 / 375) * 100vw), 344px);
+}
+
+@media screen and (min-width: 1208px) {
+    .card {
+        justify-content: flex-end;
+    }
+    .card__body {
+        flex-direction: row;
+        width: 1096px;
+        margin:0 16px 0 120px;
+        justify-content: space-between;
+    }
+    .card__copy {
+        text-align: left;
+    }
+    .card__visual{
+        margin-bottom: 0;
+    }
+    .card:first-of-type .card__body, .card:last-of-type .card__body {
+        flex-direction: row-reverse;
     }
 }
 /*====================================================================================================*/
