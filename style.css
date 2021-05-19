@@ -295,7 +295,11 @@ h2 {
     max-width: 49ch;
 }
 
-.card p {
+.card__copy h1 {
+    color: var(--color-neutral-primary);
+}
+
+.card__copy p {
     color: var(--color-neutral-secondary);
 }
 
