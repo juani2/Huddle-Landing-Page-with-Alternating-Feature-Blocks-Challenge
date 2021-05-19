@@ -336,6 +336,9 @@ h2 {
         margin:0 16px 0 120px;
         justify-content: space-between;
     }
+    .card:nth-of-type(2) .card__body {
+        margin-left: 109px;
+    }
     .card__copy {
         text-align: left;
     }
