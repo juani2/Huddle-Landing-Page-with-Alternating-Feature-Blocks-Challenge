@@ -375,6 +375,7 @@ h2 {
 
 .small-card h2 {
     font-size: clamp(18px,calc((18/375)*100vw),32px);
+    margin-bottom: clamp(24px,calc((24/375)*100vw),32px);
 }
 
 .small-card .button {
