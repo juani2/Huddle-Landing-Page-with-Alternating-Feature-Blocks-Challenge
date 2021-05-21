@@ -387,8 +387,6 @@ h2 {
     background-color: var(--color-neutral-primary);
     color: #ffffff;
     padding: 144px 0 64px 0;
-    min-height: 418px;
-
     margin-top: -96px;
     z-index: 1;
 }
