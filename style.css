@@ -399,6 +399,7 @@ h2 {
 @media screen and (min-width:1024px) {
     .page-footer .container {
         flex-direction: row;
+        justify-content: space-between;
     }
 }
 
@@ -428,7 +429,7 @@ h2 {
     flex-direction: column;
     justify-content: flex-start;
     gap: 12px;
-    padding-top: clamp(41px,calc((41/375)*100vw),48px);
+    padding-top: clamp(41px,calc((41/375)*100vw),78px);
 }
 @media screen and (min-width:1024px) {
     .page-footer__nav {
@@ -474,5 +475,10 @@ h2 {
     justify-content: center;
     border: 1.5px solid #ffffff;
     border-radius: 32px;
+}
+
+.ionicon:hover {
+    fill: hsla(321, 100%, 80%, 1);
+    border-color: hsla(321, 100%, 80%, 1);
 }
 /*====================================================================================================*/
