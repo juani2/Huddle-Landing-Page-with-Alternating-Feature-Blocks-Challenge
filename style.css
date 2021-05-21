@@ -380,13 +380,14 @@ h2 {
 
 .small-card .button {
     padding: clamp(12.5px,calc((12.5/375)*100vw),25px) clamp(50px,calc((50/375)*100vw),100px);
+    font-size: clamp(10px,calc((10/375)*100vw),20px);
 }
 /*====================================================================================================*/
 /*====================================================================================================*/
 .page-footer{
     background-color: var(--color-neutral-primary);
     color: #ffffff;
-    padding: 144px 0 64px 0;
+    padding: 240px 0 64px 0;
     margin-top: -96px;
     z-index: 1;
 }
