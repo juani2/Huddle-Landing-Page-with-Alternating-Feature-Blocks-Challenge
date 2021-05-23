@@ -177,6 +177,7 @@ h2 {
  * In that manner, reading experience will not suffer on larger screens */
 .page-header__main__copy h1 {
     max-width: 17ch;
+    margin: 0 auto;
 }
 .page-header__main__copy p {
     max-width: 50ch;
