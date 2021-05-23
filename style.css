@@ -405,7 +405,7 @@ h2 {
 }
 
 .page-footer .container > * {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
 }
 
 .page-footer__address {
@@ -454,6 +454,7 @@ h2 {
 }
 
 .page-footer__social-icons {
+    width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
